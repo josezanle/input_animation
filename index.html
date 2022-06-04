@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="input-container">
+        <input type="text" class="text-input" id="user_login">
+        <p class="label">User</p>
+    </div>
+    <br>
+    <div class="input-container">
+        <input type="text" class="text-input" id="password_login">
+        <p class="label">Password</p>
+    </div>
+
+    <script>
+            $(".text-input").on("blur", (e) => {
+                    if (e.target.value != "") {
+                        e.target.nextElementSibling.classList.add("filled")
+
+                    }else{
+                        e.target.nextElementSibling.classList.remove("filled")
+                    }
+            })
+
+            $("p.label").click(function(e){
+                if (e.target.className === "label") {
+                    $(this).parent().children().focus()
+                }else{
+                    $(this).removeClass("filled")
+                }
+             })
+            
+    </script>
+</body>
+</html>
